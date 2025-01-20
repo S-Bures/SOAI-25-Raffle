@@ -2,7 +2,7 @@ import streamlit as st
 import pandas as pd
 import random
 import time
-import os
+import base64
 
 # Set up the page configuration
 st.set_page_config(page_title="Randomised Automated Fariness Initiative (RAFI)", page_icon="🎉", layout="centered")
@@ -40,9 +40,8 @@ def play_audio():
 def get_audio_base64(file_path):
     """Convert the audio file to base64 to embed it in the app."""
     with open(file_path, "rb") as f:
-        audio_base64 = f.read()
-    return audio_base64.encode("base64").decode("utf-8")
-
+        audio_base64 = base64.b64encode(f.read()).decode("utf-8")
+    return audio_base64
 
 # def play_audio():
 #     st.audio('tadaa.wav', format='audio/mp3')
