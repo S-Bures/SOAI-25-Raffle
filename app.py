@@ -39,11 +39,11 @@ if uploaded_file:
         elif uploaded_file.name.endswith(".xlsx"):
             data = pd.read_excel(uploaded_file)
 
-        st.write("Uploaded data preview:")
-        st.write(data.head())  # Display the first few rows of the uploaded data
-        st.write("Column names detected:", data.columns.tolist())  # Display detected column names
-        st.write("Rows where Attendance is TRUE:")
-        st.write(data[data['Attendance'] == 1])  # Adjust based on your case sensitivity
+        # st.write("Uploaded data preview:")
+        # st.write(data.head())  # Display the first few rows of the uploaded data
+        # st.write("Column names detected:", data.columns.tolist())  # Display detected column names
+        # st.write("Rows where Attendance is TRUE:")
+        # st.write(data[data['Attendance'] == 1])  # Adjust based on your case sensitivity
 
         # Normalize column names (case-insensitive)
         data.columns = [col.strip().lower() for col in data.columns]
