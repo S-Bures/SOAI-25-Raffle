@@ -24,6 +24,17 @@ st.markdown("""
     </style>
 """, unsafe_allow_html=True)
 
+
+def play_audio():
+    audio_html = """
+    <audio autoplay>
+      <source src="https://www.soundjay.com/misc/sounds/pill-bottle-1.mp3" type="audio/mp3">
+      Your browser does not support the audio element.
+    </audio>
+    """
+    st.markdown(audio_html, unsafe_allow_html=True)
+
+
 # Title and Description
 st.title("🎉 Randomised Automated Fariness Initiative 🎉")
 st.markdown("Upload a CSV or Excel file to select a winner!")
@@ -43,7 +54,7 @@ if uploaded_file:
         # st.write(data.head())  # Display the first few rows of the uploaded data
         # st.write("Column names detected:", data.columns.tolist())  # Display detected column names
         # st.write("Rows where Attendance is TRUE:")
-        # st.write(data[data['Attendance'] == 1])  # Adjust based on your case sensitivity
+        # st.write(data[data['Attendance'] == 1])  
 
         # Normalize column names (case-insensitive)
         data.columns = [col.strip().lower() for col in data.columns]
@@ -65,22 +76,13 @@ if uploaded_file:
 
             names = list(valid_data[first_name_col] + " " + valid_data[last_name_col])
             # Random Name Picker
-
-            # HTML for sound when selecting the winner
-            audio_html = """
-                <audio id="audio" autoplay>
-                <source src="https://www.soundjay.com/misc/sounds/pill-bottle-1.mp3" type="audio/mp3">
-                Your browser does not support the audio element.
-                </audio>
-                """
-            st.markdown(audio_html, unsafe_allow_html=True)
+            
 
 
 
 
             if st.button("Pick a Winner!"):
-                st.audio("https://www.soundjay.com/misc/sounds/pill-bottle-1.mp3", start_time=0)
-
+                play_audio()
                 st.write("🎉 Picking a winner... 🎉")
                 placeholder = st.empty()
 
