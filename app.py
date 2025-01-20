@@ -26,13 +26,8 @@ st.markdown("""
 
 
 def play_audio():
-    audio_html = """
-    <audio autoplay>
-      <source src="tadaa.wav" type="audio/wav">
-      Your browser does not support the audio element.
-    </audio>
-    """
-    st.markdown(audio_html, unsafe_allow_html=True)
+    st.audio('tadaa.wav', format='audio/mp3')
+
 
 
 # Title and Description
