@@ -5,7 +5,7 @@ import time
 import base64
 
 # Set up the page configuration
-st.set_page_config(page_title="Randomised Automated Fariness Initiative (RAFI)", page_icon="🎉", layout="centered")
+st.set_page_config(page_title="RAFI (Randomised Automated Fariness Initiative)", page_icon="🎉", layout="centered")
 
 # Custom CSS for styling
 st.markdown("""
