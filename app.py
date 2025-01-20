@@ -58,7 +58,7 @@ if uploaded_file:
             st.error("Missing required columns: first name, last name, or attendance.")
         else:
             # Filter data where attendance is TRUE
-            valid_data = data[data[attendance_col].astype(str).str.lower() == "true"]
+            valid_data = data[data[attendance_col].astype(str).str.lower() == "1"]
 
             # Display the filtered data
             st.write("📋 Filtered Data (Attendance = TRUE):")
