@@ -10,7 +10,7 @@ st.set_page_config(page_title="Random Winner Picker", page_icon="🎉", layout="
 st.markdown("""
     <style>
     body {
-        background-color: #f9f9f9;
+        background-color: #523b88;
         font-family: "Arial", sans-serif;
         color: #333;
     }
@@ -25,7 +25,7 @@ st.markdown("""
 """, unsafe_allow_html=True)
 
 # Title and Description
-st.title("🎉 Winner Picker App 🎉")
+st.title("🎉 Raffle Winner Picker 🎉")
 st.markdown("Upload a CSV or Excel file to select a winner!")
 
 # File Upload
@@ -71,7 +71,7 @@ if uploaded_file:
                 placeholder = st.empty()
 
                 # Flash through names
-                for _ in range(30):  # Adjust the range for longer animations
+                for _ in range(random(20, 45)):  # Adjust the range for longer animations
                     random_name = random.choice(names)
                     placeholder.markdown(f"<h1 style='text-align: center; color: #FF5733;'>{random_name}</h1>", unsafe_allow_html=True)
                     time.sleep(0.1)  # Adjust speed for animation
