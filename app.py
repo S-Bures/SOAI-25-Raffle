@@ -26,19 +26,15 @@ st.markdown("""
 """, unsafe_allow_html=True)
 
 
-def inject_audio():    
+def play_audio():    
     # Streamlit's st.markdown to inject custom HTML for autoplay without controls
-    audio_path = 'tadaa.wav'
-    audio_base64 = get_audio_base64(audio_path)
-
-    # Inject JavaScript to create and play the audio element programmatically
     audio_html = f"""
-    <script>
-    var audio = new Audio("data:audio/wav;base64,{audio_base64}");
-    audio.play();
-    </script>
+    <audio autoplay>
+      <source src="data:audio/wav;base64,{get_audio_base64("tadaa.wav")}" type="audio/wav">
+      Your browser does not support the audio element.
+    </audio>
     """
-    st.markdown(audio_html, unsafe_allow_html=True)
+    return audio_html
 
 
 def get_audio_base64(file_path):
@@ -106,8 +102,8 @@ if uploaded_file:
                 # Set session state to indicate button was clicked
                 # st.session_state.button_clicked = True
 
-                inject_audio()
-                # st.markdown(audio_html, unsafe_allow_html=True)
+                audio_html = play_audio()
+                st.markdown(audio_html, unsafe_allow_html=True)
                 st.write("🎉 Picking a winner... 🎉")
                 placeholder = st.empty()
 
