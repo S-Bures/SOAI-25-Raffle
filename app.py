@@ -55,6 +55,12 @@ st.markdown("Upload a CSV or Excel file to select a winner!")
 # File Upload
 uploaded_file = st.file_uploader("Upload your file (CSV or Excel):", type=["csv", "xlsx"])
 
+# Store whether the button was clicked
+if "button_clicked" not in st.session_state:
+    st.session_state.button_clicked = False
+
+
+
 if uploaded_file:
     try:
         # Read the uploaded file
@@ -93,12 +99,15 @@ if uploaded_file:
             
 
             if st.button("Pick a Winner!"):
+                # Set session state to indicate button was clicked
+                st.session_state.button_clicked = True
+
                 play_audio()
                 st.write("🎉 Picking a winner... 🎉")
                 placeholder = st.empty()
 
                 # Flash through names
-                for _ in range(45):  # Adjust the range for longer animations
+                for _ in range(30):  # Adjust the range for longer animations
                     random_name = random.choice(names)
                     placeholder.markdown(f"<h1 style='text-align: center; color: #FF5733;'>{random_name}</h1>", unsafe_allow_html=True)
                     time.sleep(0.1)  # Adjust speed for animation
