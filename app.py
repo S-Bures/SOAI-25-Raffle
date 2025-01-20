@@ -61,18 +61,34 @@ if uploaded_file:
             valid_data = data[data[attendance_col] == 1]
 
             # Display the filtered data
-            st.write("📋 Filtered Data (Attendance = TRUE):")
             st.dataframe(valid_data[[first_name_col, last_name_col]])
 
+            names = list(valid_data[first_name_col] + " " + valid_data[last_name_col])
             # Random Name Picker
-            if st.button("🎲 Pick a Random Name!"):
-                if not valid_data.empty:
-                    with st.spinner("Spinning..."):
-                        time.sleep(1)
-                        selected_row = valid_data.sample(n=1).iloc[0]
-                        selected_name = f"{selected_row[first_name_col]} {selected_row[last_name_col]}"
-                        st.balloons()
-                        st.success(f"🎉 Randomly selected: {selected_name}")
+
+            if st.button("Pick a Winner!"):
+                st.write("🎉 Picking a winner... 🎉")
+                placeholder = st.empty()
+
+                # Flash through names
+                for _ in range(30):  # Adjust the range for longer animations
+                    random_name = random.choice(names)
+                    placeholder.markdown(f"<h1 style='text-align: center; color: #FF5733;'>{random_name}</h1>", unsafe_allow_html=True)
+                    time.sleep(0.1)  # Adjust speed for animation
+
+            # Final winner
+                winner = random.choice(names)
+                placeholder.markdown(f"<h1 style='text-align: center; color: #28A745;'>🎉 {winner} 🎉</h1>", unsafe_allow_html=True)
+                st.balloons()
+
+            # if st.button("🎲 Pick a Winner!"):
+            #     if not valid_data.empty:
+            #         with st.spinner("Spinning..."):
+            #             time.sleep(random.uniform(3, 8))
+            #             selected_row = valid_data.sample(n=1).iloc[0]
+            #             selected_name = f"{selected_row[first_name_col]} {selected_row[last_name_col]}"
+            #             st.balloons()
+            #             st.success(f"🎉 And the winner is...: {selected_name}")
                 else:
                     st.error("No valid names to choose from. Make sure the attendance column has TRUE values.")
 
