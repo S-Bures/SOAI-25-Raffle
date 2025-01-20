@@ -66,7 +66,21 @@ if uploaded_file:
             names = list(valid_data[first_name_col] + " " + valid_data[last_name_col])
             # Random Name Picker
 
+            # HTML for sound when selecting the winner
+            audio_html = """
+                <audio id="audio" autoplay>
+                <source src="https://www.soundjay.com/button/beep-07.wav" type="audio/wav">
+                Your browser does not support the audio element.
+                </audio>
+                """
+            st.markdown(audio_html, unsafe_allow_html=True)
+
+
+
+
             if st.button("Pick a Winner!"):
+                st.audio("https://www.soundjay.com/button/beep-07.wav", start_time=0)
+
                 st.write("🎉 Picking a winner... 🎉")
                 placeholder = st.empty()
 
