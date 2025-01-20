@@ -4,7 +4,7 @@ import random
 import time
 
 # Set up the page configuration
-st.set_page_config(page_title="Random Name Picker", page_icon="🎉", layout="centered")
+st.set_page_config(page_title="Random Winner Picker", page_icon="🎉", layout="centered")
 
 # Custom CSS for styling
 st.markdown("""
@@ -25,7 +25,7 @@ st.markdown("""
 """, unsafe_allow_html=True)
 
 # Title and Description
-st.title("🎉 Random Name Picker App 🎉")
+st.title("🎉 Winner Picker App 🎉")
 st.markdown("Upload a CSV or Excel file to select a winner!")
 
 # File Upload
