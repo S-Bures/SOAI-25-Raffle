@@ -69,7 +69,7 @@ if uploaded_file:
             # HTML for sound when selecting the winner
             audio_html = """
                 <audio id="audio" autoplay>
-                <source src="https://www.soundjay.com/button/beep-07.wav" type="audio/wav">
+                <source src="https://www.soundjay.com/misc/sounds/pill-bottle-1.mp3" type="audio/mp3">
                 Your browser does not support the audio element.
                 </audio>
                 """
@@ -79,7 +79,7 @@ if uploaded_file:
 
 
             if st.button("Pick a Winner!"):
-                st.audio("https://www.soundjay.com/button/beep-07.wav", start_time=0)
+                st.audio("https://www.soundjay.com/misc/sounds/pill-bottle-1.mp3", start_time=0)
 
                 st.write("🎉 Picking a winner... 🎉")
                 placeholder = st.empty()
