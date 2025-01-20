@@ -89,8 +89,8 @@ if uploaded_file:
             #             selected_name = f"{selected_row[first_name_col]} {selected_row[last_name_col]}"
             #             st.balloons()
             #             st.success(f"🎉 And the winner is...: {selected_name}")
-                else:
-                    st.error("No valid names to choose from. Make sure the attendance column has TRUE values.")
+            else:
+                st.error("No valid names to choose from. Make sure the attendance column has TRUE values.")
 
     except Exception as e:
         st.error(f"Error processing the file: {e}")
