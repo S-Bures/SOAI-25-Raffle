@@ -43,7 +43,7 @@ if uploaded_file:
         st.write(data.head())  # Display the first few rows of the uploaded data
         st.write("Column names detected:", data.columns.tolist())  # Display detected column names
         st.write("Rows where Attendance is TRUE:")
-        st.write(data[data['Attendance'].str.lower() == '1'])  # Adjust based on your case sensitivity
+        st.write(data[data['Attendance'] == 1])  # Adjust based on your case sensitivity
 
         # Normalize column names (case-insensitive)
         data.columns = [col.strip().lower() for col in data.columns]
@@ -58,7 +58,7 @@ if uploaded_file:
             st.error("Missing required columns: first name, last name, or attendance.")
         else:
             # Filter data where attendance is TRUE
-            valid_data = data[data[attendance_col].astype(str).str.lower() == "1"]
+            valid_data = data[data[attendance_col] == 1]
 
             # Display the filtered data
             st.write("📋 Filtered Data (Attendance = TRUE):")
