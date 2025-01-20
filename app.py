@@ -71,7 +71,7 @@ if uploaded_file:
                 placeholder = st.empty()
 
                 # Flash through names
-                for _ in range(random.random(20, 45)):  # Adjust the range for longer animations
+                for _ in range(30):  # Adjust the range for longer animations
                     random_name = random.choice(names)
                     placeholder.markdown(f"<h1 style='text-align: center; color: #FF5733;'>{random_name}</h1>", unsafe_allow_html=True)
                     time.sleep(0.1)  # Adjust speed for animation
