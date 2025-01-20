@@ -34,7 +34,7 @@ def play_audio():
       Your browser does not support the audio element.
     </audio>
     """
-    st.markdown(audio_html, unsafe_allow_html=True)
+    return audio_html
 
 
 def get_audio_base64(file_path):
@@ -56,8 +56,8 @@ st.markdown("Upload a CSV or Excel file to select a winner!")
 uploaded_file = st.file_uploader("Upload your file (CSV or Excel):", type=["csv", "xlsx"])
 
 # Store whether the button was clicked
-if "button_clicked" not in st.session_state:
-    st.session_state.button_clicked = False
+# if "button_clicked" not in st.session_state:
+#     st.session_state.button_clicked = False
 
 
 
@@ -100,14 +100,15 @@ if uploaded_file:
 
             if st.button("Pick a Winner!"):
                 # Set session state to indicate button was clicked
-                st.session_state.button_clicked = True
+                # st.session_state.button_clicked = True
 
-                play_audio()
+                audio_html = play_audio()
+                st.markdown(audio_html, unsafe_allow_html=True)
                 st.write("🎉 Picking a winner... 🎉")
                 placeholder = st.empty()
 
                 # Flash through names
-                for _ in range(30):  # Adjust the range for longer animations
+                for _ in range(37):  # Adjust the range for longer animations
                     random_name = random.choice(names)
                     placeholder.markdown(f"<h1 style='text-align: center; color: #FF5733;'>{random_name}</h1>", unsafe_allow_html=True)
                     time.sleep(0.1)  # Adjust speed for animation
