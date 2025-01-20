@@ -2,6 +2,7 @@ import streamlit as st
 import pandas as pd
 import random
 import time
+import os
 
 # Set up the page configuration
 st.set_page_config(page_title="Randomised Automated Fariness Initiative (RAFI)", page_icon="🎉", layout="centered")
@@ -25,8 +26,26 @@ st.markdown("""
 """, unsafe_allow_html=True)
 
 
-def play_audio():
-    st.audio('tadaa.wav', format='audio/mp3')
+def play_audio():    
+    # Streamlit's st.markdown to inject custom HTML for autoplay without controls
+    audio_html = f"""
+    <audio autoplay>
+      <source src="data:audio/wav;base64,{get_audio_base64("tadaa.wav")}" type="audio/wav">
+      Your browser does not support the audio element.
+    </audio>
+    """
+    st.markdown(audio_html, unsafe_allow_html=True)
+
+
+def get_audio_base64(file_path):
+    """Convert the audio file to base64 to embed it in the app."""
+    with open(file_path, "rb") as f:
+        audio_base64 = f.read()
+    return audio_base64.encode("base64").decode("utf-8")
+
+
+# def play_audio():
+#     st.audio('tadaa.wav', format='audio/mp3')
 
 
 
