@@ -25,7 +25,8 @@ st.markdown("""
     </style>
 """, unsafe_allow_html=True)
 
-st.image("static/logo_full.png", width=80)
+with st.sidebar:
+    st.image("static/logo_full.png", use_column_width=True)
 
 
 # Add your image to the top left corner
