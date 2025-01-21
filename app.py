@@ -5,7 +5,7 @@ import time
 import base64
 
 # Set up the page configuration
-st.set_page_config(page_title="RAFI (Randomised Automated Fariness Initiative)", page_icon="🎉", layout="centered")
+st.set_page_config(page_title="RAFI (Randomised Automated Fariness Initiative)", page_icon= "Nexus_IRIS.png", layout="centered")
 
 # Custom CSS for styling
 st.markdown("""
@@ -24,6 +24,28 @@ st.markdown("""
     }
     </style>
 """, unsafe_allow_html=True)
+
+# Add your image to the top left corner
+st.markdown("""
+    <style>
+    [data-testid="stAppViewContainer"] {
+        position: relative;
+    }
+    .logo-container {
+        position: absolute;
+        top: 10px;
+        left: 10px;
+        z-index: 1000;
+    }
+    .logo-container img {
+        width: 80px; /* Adjust the size as needed */
+    }
+    </style>
+    <div class="logo-container">
+        <img src="assets/logo.png" alt="Logo">
+    </div>
+""", unsafe_allow_html=True)
+
 
 
 def play_audio():    
