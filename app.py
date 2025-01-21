@@ -5,7 +5,7 @@ import time
 import base64
 
 # Set up the page configuration
-st.set_page_config(page_title="RAFI (Randomised Automated Fariness Initiative)", page_icon= "Nexus_IRIS.png", layout="centered")
+st.set_page_config(page_title="RAFI (Randomised Automated Fariness Initiative)", page_icon= "static/Nexus_IRIS.png", layout="centered")
 
 # Custom CSS for styling
 st.markdown("""
@@ -42,7 +42,7 @@ st.markdown("""
     }
     </style>
     <div class="logo-container">
-        <img src="logo_full.png" alt=" ">
+        <img src="static/logo_full.png" alt=" ">
     </div>
 """, unsafe_allow_html=True)
 
@@ -52,7 +52,7 @@ def play_audio():
     # Streamlit's st.markdown to inject custom HTML for autoplay without controls
     audio_html = f"""
     <audio autoplay>
-      <source src="data:audio/wav;base64,{get_audio_base64("tadaa.wav")}" type="audio/wav">
+      <source src="data:audio/wav;base64,{get_audio_base64("static/tadaa.wav")}" type="audio/wav">
       Your browser does not support the audio element.
     </audio>
     """
@@ -64,9 +64,6 @@ def get_audio_base64(file_path):
     with open(file_path, "rb") as f:
         audio_base64 = base64.b64encode(f.read()).decode("utf-8")
     return audio_base64
-
-# def play_audio():
-#     st.audio('tadaa.wav', format='audio/mp3')
 
 
 
