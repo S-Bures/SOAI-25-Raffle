@@ -25,26 +25,29 @@ st.markdown("""
     </style>
 """, unsafe_allow_html=True)
 
+st.image("static/logo_full.png", width=80)
+
+
 # Add your image to the top left corner
-st.markdown("""
-    <style>
-    [data-testid="stAppViewContainer"] {
-        position: relative;
-    }
-    .logo-container {
-        position: absolute;
-        top: 10px;
-        left: 10px;
-        z-index: 1000;
-    }
-    .logo-container img {
-        width: 80px; /* Adjust the size as needed */
-    }
-    </style>
-    <div class="logo-container">
-        <img src="static/logo_full.png" alt=" ">
-    </div>
-""", unsafe_allow_html=True)
+# st.markdown("""
+#     <style>
+#     [data-testid="stAppViewContainer"] {
+#         position: relative;
+#     }
+#     .logo-container {
+#         position: absolute;
+#         top: 10px;
+#         left: 10px;
+#         z-index: 1000;
+#     }
+#     .logo-container img {
+#         width: 80px; /* Adjust the size as needed */
+#     }
+#     </style>
+#     <div class="logo-container">
+#         <img src="static/logo_full.png" alt=" ">
+#     </div>
+# """, unsafe_allow_html=True)
 
 
 
