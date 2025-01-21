@@ -42,7 +42,7 @@ st.markdown("""
     }
     </style>
     <div class="logo-container">
-        <img src="assets/logo.png" alt="Logo">
+        <img src="logo_full.png" alt="Logo">
     </div>
 """, unsafe_allow_html=True)
 
